@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dice Roller — Roll d4, d6, d8, d10, d12, d20 Online | Free</title>
+  <meta name="description" content="Free online dice roller. Roll 1–6 dice in d4, d6, d8, d10, d12 or d20, with a roll animation, total, and a full roll history. Perfect for D&amp;D, board games and tabletop RPGs." />
+  <meta name="keywords" content="dice roller, d20 roller, dnd dice, online dice, roll dice, tabletop dice" />
+  <meta name="author" content="Dice Roller" />
+  <meta name="theme-color" content="#14100c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dice Roller — Roll d4, d6, d8, d10, d12, d20 Online" />
+  <meta property="og:description" content="Roll 1–6 dice in any type, with animation, total and roll history. Free, no sign-up." />
+  <meta property="og:site_name" content="Dice Roller" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Dice Roller — Roll d4, d6, d8, d10, d12, d20 Online" />
+  <meta name="twitter:description" content="Roll 1–6 dice in any type, with animation, total and roll history. Free, no sign-up." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Dice Roller — home">
+        <span class="logo-mark" aria-hidden="true">🎲</span>
+        Dice <em>Roller</em>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#roller">Roller</a>
+        <a href="#history">History</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <a class="nav-cta" href="#roller">Roll the dice</a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <a href="#roller">Roller</a>
+      <a href="#history">History</a>
+      <a href="#how">How it works</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Roll for initiative</span>
+          <h1>Roll the<br /><span class="grad">dice.</span></h1>
+          <p class="hero-sub">d4 to d20, one die or six — <strong>fair, instant, and always in your pocket</strong>. Perfect for D&amp;D, board games, and any tabletop night.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#roller">🎲 Roll the dice</a>
+            <a class="btn btn-ghost" href="#how">How it works</a>
+          </div>
+          <p class="hero-note">Free forever · No sign-up · Fair random rolls</p>
+        </div>
+
+        <div class="hero-card" aria-hidden="true">
+          <p class="hero-card-label">A natural 20 looks like</p>
+          <div class="hero-dice">
+            <span class="die-face die-d20">20</span>
+          </div>
+          <p class="hero-card-cat">🎉 Critical hit!</p>
+          <p class="hero-card-note">d20 · 1–20 · Every roll is fair</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Roller ============ -->
+    <section class="section" id="roller">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The table</span>
+          <h2>Your dice.</h2>
+          <p>Pick a die type and how many to roll, then hit Roll — or press Space.</p>
+        </div>
+
+        <div class="tool-card reveal">
+          <span class="field-label" id="die-label">Die type</span>
+          <div class="chip-row" role="group" aria-labelledby="die-label">
+            <button class="die-btn" type="button" data-sides="4" aria-pressed="false">d4</button>
+            <button class="die-btn active" type="button" data-sides="6" aria-pressed="true">d6</button>
+            <button class="die-btn" type="button" data-sides="8" aria-pressed="false">d8</button>
+            <button class="die-btn" type="button" data-sides="10" aria-pressed="false">d10</button>
+            <button class="die-btn" type="button" data-sides="12" aria-pressed="false">d12</button>
+            <button class="die-btn" type="button" data-sides="20" aria-pressed="false">d20</button>
+          </div>
+
+          <label class="field-label" for="dice-count">Number of dice — <span id="dice-count-label">1</span></label>
+          <input class="count-range" id="dice-count" type="range" min="1" max="6" step="1" value="1" aria-describedby="dice-count-label" />
+          <div class="range-ticks" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+
+          <div class="roll-row">
+            <button class="btn btn-primary btn-roll" id="roll-btn" type="button">🎲 Roll!</button>
+            <button class="btn btn-ghost" id="clear-history-btn" type="button">✕ Clear history</button>
+          </div>
+
+          <div class="result" id="result" aria-live="polite">
+            <div class="result-empty" id="result-empty">
+              <span class="result-empty-icon" aria-hidden="true">🎲</span>
+              <p>Your dice are waiting. Hit Roll — or press Space.</p>
+            </div>
+            <div class="result-body hidden" id="result-body">
+              <div class="dice-stage" id="dice-stage"></div>
+              <p class="result-label" id="roll-summary">1d6</p>
+              <p class="result-total" id="roll-total">—</p>
+              <p class="result-note" id="roll-note"></p>
+            </div>
+          </div>
+          <p class="hint">Tip: press <kbd>Space</kbd> anywhere on the page to roll again.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ History ============ -->
+    <section class="section" id="history">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The record</span>
+          <h2>Roll history.</h2>
+          <p>Every roll, saved in your browser — newest first.</p>
+        </div>
+        <div class="panel reveal">
+          <div class="panel-head">
+            <h3>🎲 Recent rolls</h3>
+            <span class="panel-count" id="history-count">0 rolls</span>
+          </div>
+          <p class="empty-note" id="history-empty">No rolls yet. Your history will appear here.</p>
+          <ul class="history-list" id="history-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ How it works ============ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Dead simple</span>
+          <h2>How it works.</h2>
+          <p>Three steps to the table.</p>
+        </div>
+        <div class="steps-grid reveal">
+          <div class="step-card">
+            <span class="step-num">1</span>
+            <h3>Pick your die</h3>
+            <p>d4, d6, d8, d10, d12 or d20 — the full tabletop set, one tap each.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">2</span>
+            <h3>Choose how many</h3>
+            <p>Slide from 1 to 6 dice. Roll a single d20 for initiative, or 3d6 for a stat.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">3</span>
+            <h3>Roll &amp; read</h3>
+            <p>Watch the dice tumble, read the total, and check your history for every roll.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <a class="logo" href="#top" aria-label="Dice Roller — back to top">
+            <span class="logo-mark" aria-hidden="true">🎲</span>
+            Dice <em>Roller</em>
+          </a>
+          <p>Fair dice, always in your pocket. A tiny, free roller for D&amp;D, board games and tabletop nights.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#roller">Roller</a>
+          <a href="#history">History</a>
+          <a href="#how">How it works</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Dice Roller. May your rolls be high. 🎲</span>
+        <span>Free forever. No sign-up.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
